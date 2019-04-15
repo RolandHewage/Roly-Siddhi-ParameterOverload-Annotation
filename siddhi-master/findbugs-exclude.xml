@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<FindBugsFilter>
+    <!--api-->
+    <Match>
+        <Class name="io.siddhi.query.api.expression.AttributeFunction"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.query.api.execution.query.input.handler.StreamFunction"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.query.api.expression.AttributeFunction"/>
+        <Bug pattern="EI_EXPOSE_REP2"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.query.api.execution.query.input.handler.StreamFunction"/>
+        <Bug pattern="EI_EXPOSE_REP2"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.query.api.execution.query.output.stream.UpdateOrInsertStream"/>
+        <Bug pattern="SE_BAD_FIELD"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.query.api.execution.query.output.stream.UpdateStream"/>
+        <Bug pattern="SE_BAD_FIELD"/>
+    </Match>
+
+    <Match>
+        <Package name="~io\.siddhi\.query\.api.*"/>
+        <Bug pattern="EI_EXPOSE_REP, EI_EXPOSE_REP2"/>
+    </Match>
+
+    <!--compiler-->
+    <Match>
+        <Class name="io.siddhi.query.compiler.internal.SiddhiQLBaseVisitorImpl"/>
+        <Bug pattern="EI_EXPOSE_REP, EI_EXPOSE_REP2"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.query.compiler.SiddhiQLLexer"/>
+        <Bug pattern="EI_EXPOSE_REP, MS_FINAL_PKGPROTECT, MS_PKGPROTECT, SF_SWITCH_NO_DEFAULT, SF_SWITCH_NO_DEFAULT"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.query.compiler.SiddhiQLParser"/>
+        <Bug pattern="MF_CLASS_MASKS_FIELD, BC_UNCONFIRMED_CAST, EI_EXPOSE_REP, MS_PKGPROTECT, SF_SWITCH_NO_DEFAULT"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.query.compiler.SiddhiQLParser$CollectContext"/>
+        <Bug pattern="MF_CLASS_MASKS_FIELD"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.query.compiler.exception.SiddhiParserException"/>
+        <Bug pattern="EI_EXPOSE_REP, EI_EXPOSE_REP2"/>
+    </Match>
+
+    <!--core-->
+    <Match>
+        <Class name="io.siddhi.core.query.output.ratelimit.event.AllPerEventOutputRateLimiter"/>
+        <Bug pattern="VO_VOLATILE_INCREMENT"/>
+    </Match>
+    <Match>
+        <Class name="PartitionRuntime"/>
+        <Bug pattern="RV_RETURN_VALUE_OF_PUTIFABSENT_IGNORED"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.executor.condition.NotConditionExpressionExecutor"/>
+        <Bug pattern="RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN"/>
+    </Match>
+    <Match>
+        <Class name="OrConditionExpressionExecutor"/>
+        <Bug pattern="RC_REF_COMPARISON_BAD_PRACTICE_BOOLEAN"/>
+    </Match>
+    <Match>
+        <Class name="DefinitionParserHelper$2"/>
+        <Bug pattern="SE_BAD_FIELD"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.util.SiddhiAppRuntimeBuilder"/>
+        <Bug pattern="RV_RETURN_VALUE_OF_PUTIFABSENT_IGNORED"/>
+    </Match>
+    <Match>
+        <class name="AbstractStreamProcessor"/>
+        <Bug pattern="IS2_INCONSISTENT_SYNC"/>
+    </Match>
+    <Match>
+        <class name="QuerySelector"/>
+        <Bug pattern="IS2_INCONSISTENT_SYNC"/>
+    </Match>
+    <Match>
+        <class name="AttributeAggregator"/>
+        <Bug pattern="IS2_INCONSISTENT_SYNC"/>
+    </Match>
+    <Match>
+        <class name="StreamJunction"/>
+        <Bug pattern="IS2_INCONSISTENT_SYNC"/>
+    </Match>
+    <Match>
+        <class name="io.siddhi.core.util.timestamp.EventTimeBasedMillisTimestampGenerator"/>
+        <Bug pattern="IS2_INCONSISTENT_SYNC"/>
+    </Match>
+    <Match>
+        <class name="StreamEvent"/>
+        <Bug pattern="UC_USELESS_OBJECT"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.executor.VariableExpressionExecutor"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.stream.output.sink.distributed.DistributedTransport"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.query.selector.attribute.processor.executor.AbstractAggregationAttributeExecutor"/>
+        <Bug pattern="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.util.transport.InMemoryBroker$MessageBroker"/>
+        <Bug pattern="DE_MIGHT_IGNORE"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.util.parser.JoinInputStreamParser"/>
+        <Bug pattern="SF_SWITCH_NO_DEFAULT"/>
+    </Match>
+    <Match>
+        <Class name="AvgIncrementalAttributeAggregator"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="CountIncrementalAttributeAggregator"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="SumIncrementalAttributeAggregator"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.exception.SiddhiAppCreationException"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.exception.StoreQueryCreationException"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.table.holder.IndexEventHolder"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.table.holder.SnapshotableIndexEventHolder"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.table.holder.ListEventHolder"/>
+        <Bug pattern="EQ_DOESNT_OVERRIDE_EQUALS"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.query.output.ratelimit.snapshot.AggregationGroupByWindowedPerSnapshotOutputRateLimiter"/>
+        <Bug pattern="BC_UNCONFIRMED_CAST"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.query.processor.stream.window.DelayWindowProcessor"/>
+        <Bug pattern="BC_UNCONFIRMED_CAST"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.query.processor.stream.window.SessionWindowProcessor"/>
+        <Bug pattern="DMI_ENTRY_SETS_MAY_REUSE_ENTRY_OBJECTS"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.util.Scheduler$SchedulerState"/>
+        <Bug pattern="EQ_COMPARETO_USE_OBJECT_EQUALS"/>
+    </Match>
+    <Match>
+        <Class name="io.siddhi.core.util.snapshot.state.SingleSyncStateHolder"/>
+        <Bug pattern="DC_DOUBLECHECK"/>
+    </Match>
+
+
+    <Match>
+        <Package name="~io\.siddhi\.core\.query\.output\.ratelimit\.time.*"/>
+        <Bug pattern="IS2_INCONSISTENT_SYNC"/>
+    </Match>
+    <Match>
+        <Package name="~io\.siddhi\.core.*"/>
+        <Bug pattern="EI_EXPOSE_REP2, SIC_INNER_SHOULD_BE_STATIC"/>
+    </Match>
+    <Match>
+        <Package name="~io\.siddhi\.core\.event.*"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Package name="~io\.siddhi\.core\.query\.selector\.attribute\.aggregator\.incremental.*"/>
+        <Bug pattern="EI_EXPOSE_REP"/>
+    </Match>
+    <Match>
+        <Package name="~io\.siddhi\.core\.util\.snapshot\.*"/>
+        <Bug pattern="AT_OPERATION_SEQUENCE_ON_CONCURRENT_ABSTRACTION"/>
+    </Match>
+    <!--Suppression added to support for Java 11-->
+    <Match>
+        <Class name="~io\.siddhi\.core\.event\.stream\.holder\.SnapshotableStreamEventQueue"/>
+        <Bug pattern="SE_TRANSIENT_FIELD_NOT_RESTORED"/>
+    </Match>
+
+    <!--other-->
+    <Match>
+        <Package name="~io\.siddhi\.performance.*"/>
+    </Match>
+    <Match>
+        <Package name="~io\.siddhi\.sample.*"/>
+    </Match>
+
+
+</FindBugsFilter>
